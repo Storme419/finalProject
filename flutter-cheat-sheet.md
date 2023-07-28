@@ -54,7 +54,8 @@ import 'package:<app>/<page>.dart';
 - `const` int x = 1; // won't change
 - `bool` x = true;
 - `bool?` x = null; // nullable
-    
+/
+- width: `double.infinity` // max width possible, similar to css auto/100%
 
 ##  Widgets
 
@@ -62,21 +63,18 @@ import 'package:<app>/<page>.dart';
 
 - `MaterialApp(` - _automatically apply Material styling_
     - `debugShowCheckedBanner:` -> bool
-    - `theme:` -> ThemeData()
+    - `theme:` -> ThemeData(primarySwatch: \<colour>)
     - `home:` -> Scaffold()
-<br /><br />
-- `ThemeData(` - _seed for Material Design_
-    - `primarySwatch:` -> colour
 <br /><br />
 - `Scaffold(` - _Material Design layout_
     - `appBar:` -> AppBar()
-    - `body:` -> widget
+    - `body:` -> \<widget>
     - `floatingActionButton:` -> FloatingActionButton()
     - `bottomNavigationBar:` -> NavigationBar()
 <br /><br />
 - `AppBar(` - _top title bar_
     - `title:` -> Text()
-    - `automaticallyImplyLeading:` -> bool
+    - `automaticallyImplyLeading:` -> \<bool>
     - `leading:` -> IconButton()
 
 
@@ -93,11 +91,11 @@ import 'package:<app>/<page>.dart';
 - `NavigationBar(` - _always visible menu_
     - `destinations:` -> [NavigationDestination(), ...]
     - `onDestinationSelected:` -> (int index) {}
-    - `selectedIndex:` -> int
+    - `selectedIndex:` -> \<int>
 <br /><br />
 - `NavigationDestination(`
-    - `icon:` Icon()
-    - `label:` -> 'string'
+    - `icon:` -> Icon()
+    - `label:` -> \<string>
 
 ### Common Smaller Widgets
 
@@ -107,22 +105,31 @@ import 'package:<app>/<page>.dart';
 <br /><br />
 - `ElevatedButton(`
     - `onPressed:` -> () {}
-    - `child:` -> widget
+    - `child:` -> \<widget>
 <br /><br />
 - `IconButton(` - _icon with onPressed property_
     - `onPressed:` -> () {}
     - `icon:` -> Icon()
 <br /><br />
-- `Divider(` - _similar to \<hr />_
-    - `color:` -> colour
+- `Text(<string>, ...`
+    - `style:` -> TextStyle(color:\<colour>)
 
-### Position Widgets
+### Position/Layout Widgets
 
+- `Container(`
+    - `child:` - \<widget>
+    - `width:`
+    - `margin:` -> EdgeInsets.all(\<float>)
+    - `padding:` -> EdgeInsets.all(\<float>)
+    - `color:`
 - `Center(` - _vertical/horizontal center_
-    - `child:` -> widget
+    - `child:` -> \<widget>
 <br /><br />
 - `Column(` - _vertical flexbox_
-    - `children:` -> [widget, ...]
+    - `children:` -> [\<widget>, ...]
 <br /><br />
 - `SizedBox(`
-    - `height:` -> int
+    - `height:`
+<br /><br />
+- `Divider(` - _similar to \<hr />_
+    - `color:` -> \<colour>
