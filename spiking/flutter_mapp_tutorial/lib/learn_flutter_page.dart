@@ -21,12 +21,33 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
           icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
-      body: Column(
-        children: [
-          Image.asset('images/einstein.jpg'),
-          const Divider(),
-        ]
-      ),
+      body: Column(children: [
+        Image.asset('images/einstein.jpg'),
+        const SizedBox(
+          height: 10,
+        ),
+        const Divider(),
+        Container(
+          margin: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
+          color: Colors.blueGrey,
+          width: double.infinity,
+          child: const Center(
+            child: Text(
+              'This is a text widget',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            debugPrint('Elevated Button');
+          },
+          child: const Text('Elevated Button'),
+        ),
+      ]),
     );
   }
 }
