@@ -33,7 +33,7 @@ class _SingleBookPageState extends State<SingleBookPage> {
               children: [
                 Text('id: ${book['id']}'),
                 Text('${book['title']} - ${book['author']}'),
-                //Text(book['blurb']),
+                Text(book['blurb']),
                 const Divider(color: Colors.black),
                 ElevatedButton(
                   onPressed: () {
