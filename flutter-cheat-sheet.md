@@ -48,13 +48,25 @@ import 'package:<app>/<page>.dart';
 - `Colors.red`
     - pre-defined colour
 
-## Java Data Types
+## Supabase
+
+dependency in `pubspec.yaml`:
+```
+dependencies:
+  supabase_flutter: ^1.6.2
+```
+
+import in .dart:
+```
+import 'package:supabase_flutter/supabase_flutter.dart';
+```
+
+## C Data Types
 - `String` x = 'hello world';
 - `int` x = 1;
 - `const` int x = 1; // won't change
 - `bool` x = true;
 - `bool?` x = null; // nullable
-/
 - width: `double.infinity` // max width possible, similar to css auto/100%
 
 ##  Widgets
@@ -62,7 +74,7 @@ import 'package:<app>/<page>.dart';
 ### Top Level Widgets
 
 - `MaterialApp(` - _automatically apply Material styling_
-    - `debugShowCheckedBanner:` -> bool
+    - `debugShowCheckedBanner:` -> \<bool>
     - `theme:` -> ThemeData(primarySwatch: \<colour>)
     - `home:` -> Scaffold()
 <br /><br />
@@ -97,6 +109,36 @@ import 'package:<app>/<page>.dart';
     - `icon:` -> Icon()
     - `label:` -> \<string>
 
+### List Builders
+_(Flutter equivalent of array mapping in HTML/JS)_
+
+```
+ListView(
+    children: const [
+        const Text('list item 1'),
+        const Text('list item 2'),
+        const Text('list item 3'),
+    ],
+)
+```
+
+Above is how to write a static list, but to make the `ListView` dynamically show a `List` (aka array), use a builder method:
+
+- `ListView.builder(`
+    - `itemCount:` -> \<int>
+    - `itemBuilder:` -> (context, index) { return \<single item>; }
+        - eg. `itemBuilder: (context, i) { return const Text('item ${i+1}');}`
+<br /><br />
+- `ListView.separated(` - _same as builder but can define a separator between items_
+    - `itemCount:` -> \<int>
+    - `itemBuilder:` -> (context, index) {}
+    - `separatorBuilder:` -> (context, index) {}
+<br /><br />
+- `ListTile(` - _item card, designed to be returned by ListView builders_
+    - `title:` -> Text()
+    - `subtitle:` -> Text()
+    - `trailing:` -> \<widget>
+
 ### Common Smaller Widgets
 
 - `FloatingActionButton(`
@@ -117,11 +159,12 @@ import 'package:<app>/<page>.dart';
 ### Position/Layout Widgets
 
 - `Container(`
-    - `child:` - \<widget>
+    - `child:` -> \<widget>
     - `width:`
     - `margin:` -> EdgeInsets.all(\<float>)
     - `padding:` -> EdgeInsets.all(\<float>)
     - `color:`
+<br /><br />
 - `Center(` - _vertical/horizontal center_
     - `child:` -> \<widget>
 <br /><br />
