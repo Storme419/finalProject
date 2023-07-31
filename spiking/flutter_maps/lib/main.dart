@@ -79,9 +79,16 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
             ElevatedButton(
               onPressed: () {
                 mapController.animateTo(
-                    dest: const LatLng(53.3811, -1.4701), zoom: 9.2);
+                    dest: const LatLng(53.3342, -1.7837), zoom: 10);
               },
-              child: const Text('Go to Sheffield'),
+              child: const Text('Peak District'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                mapController.animateTo(
+                    dest: const LatLng(55.3781, -3.4360), zoom: 5.5);
+              },
+              child: const Text('Zoom Out...'),
             ),
           ],
         ),
@@ -130,6 +137,12 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            Marker(
+                point: const LatLng(53.2043, -1.1549),
+                width: 80,
+                height: 80,
+                builder: (context) => const Icon(Icons.house, size: 30),
+              ),
             ...points.map(
               (point) => Marker(
                 point: point,
